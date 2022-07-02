@@ -6,7 +6,7 @@ In the project directory, you can run:
 ## `npm start`
 
 This is a clone of 2048 implemented using React. It's running live [here](https://play2048.co/).
-### Motion Graphics by Romain Cousin [ https://www.behance.net/gallery/16173271/2048-Animated-Edition ]
+### [Motion Graphics](https://www.behance.net/gallery/16173271/2048-Animated-Edition) by Romain Cousin
 
 ### Technical
 * React
