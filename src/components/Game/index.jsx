@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Cell } from '../Cell'
 import { useSelector, useDispatch } from 'react-redux'
-import { updateGrid } from '../../redux/gridSlice'
+import { updateGrid, updateGameOver } from '../../redux/gridSlice'
 import cloneDeep from 'lodash.clonedeep'
 import Swipe from "react-easy-swipe"
 
@@ -12,14 +12,13 @@ export const Game = () => {
   const DOWN_ARROW = 40
 
   const data = useSelector((state) => state.grid.grid)
+  const gameOver = useSelector((state) => state.grid.gameOver)
   const dispatch = useDispatch()
-  const [gameOver, setGameOver] = useState(false)
   // Initial Grid
   const initialize = () => {
     let newGrid = cloneDeep(data)
     addNumber(newGrid)
     addNumber(newGrid)
-    // setData(newGrid)
     dispatch(updateGrid(newGrid))
   }
   // Add number
@@ -44,9 +43,9 @@ export const Game = () => {
         gridFull = true
         let gameOver = checkIfGameOver()
         if (gameOver) {
-          setGameOver(true)
+          dispatch(updateGameOver(true))
         }
-        setGameOver(true)
+        dispatch(updateGameOver(true))
       }
     }
   }
@@ -276,7 +275,7 @@ export const Game = () => {
 
     let gameOverr = checkIfGameOver()
     if (gameOverr) {
-      setGameOver(true)
+      dispatch(updateGameOver(true))
     }
   }
 
@@ -293,7 +292,7 @@ export const Game = () => {
   })
 
   return (
-    <div className='w-[500px] h-[500px] bg-slate-200 rounded-lg relative'>
+    <div className='w-[90vw] md:w-[500px] h-[90vw] md:h-[500px] bg-slate-200 rounded-lg relative'>
       <Swipe
         onSwipeDown={() => swipeDown()}
         onSwipeLeft={() => swipeLeft()}

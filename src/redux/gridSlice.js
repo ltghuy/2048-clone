@@ -6,7 +6,8 @@ const initialState = {
     [0, 0, 0, 0],
     [0, 0, 0, 0],
     [0, 0, 0, 0]
-  ]
+  ],
+  gameOver: false
 }
 export const gridSlice = createSlice({
   name: 'grid',
@@ -14,9 +15,12 @@ export const gridSlice = createSlice({
   reducers: {
     updateGrid: (state, action) => {
       state.grid = action.payload
+    },
+    updateGameOver: (state, action) => {
+      state.gameOver = action.payload
     }
-  },
+  }
 })
 
-export const { updateGrid } = gridSlice.actions
+export const { updateGrid, updateGameOver } = gridSlice.actions
 export default gridSlice.reducer
