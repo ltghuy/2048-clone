@@ -13,6 +13,7 @@ This is a clone of 2048 implemented using React. It's running live [here](https:
 * TailwindCSS
 * Lodash clonedeep
 * React-easy-swipe
+* Redux toolkit
 
 ## DEMO
 
